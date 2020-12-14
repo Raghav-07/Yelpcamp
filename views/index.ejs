@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="yelpcss.css">
+<%- include("partials/header.ejs") %>
+<body style="background-color:#D3D3D3;">
+			
+<div class="container">
+	<header class="jumbotron color:'steelblue'">
+<h1> Welcome to Campgrounds  </h1>
+		<p> We are here to show you Campgrounds all over the world!! </p>
+		<p>
+	<a class="btn btn-info btn-lg" href="/campgrounds/new"> Add New Campgrounds </a>
+		</p>
+	</header>
+	
+<div class="row text-center">
+<% for(var i=0;i<campgrounds.length;i++) { %>
+				<div class="col-md-3 col-sm-6">
+<img src= "<%= campgrounds[i].image %>" class="img-thumbnail" >
+						<div class="caption text-center">
+						<p class="cld1"> <%= campgrounds[i].name %> </p>
+						</div>
+					<p>
+						<a href="/campgrounds/<%= campgrounds[i]._id %>" class="btn btn-primary">More Info </a>
+					</p>
+						</div>
+		
+<% } %>			
+	</div>
+</div>
+	
+
+<br>

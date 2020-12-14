@@ -1,0 +1,51 @@
+.six {
+margin-bottom:9px;
+	text-align:center;
+		color:steelblue;
+	
+}
+
+.five {
+	margin-bottom:30px;
+	text-align:center;
+	color:steelblue;
+	font-family:Comic Sans MS;
+}
+
+#bold {
+	color:steelblue;
+	font-weight:bold;
+}
+h2 {
+	color:steelblue;	
+}
+
+p {
+		font-family:Comic Sans MS;
+}
+#bold1 {
+	font-size:25px;
+	color:steelblue;	
+	font-weight:bold;
+}
+
+h5 {
+	margin-left:10px;
+}
+
+body {
+	margin:20px 20px 20px 20px;
+		background:#D3D3D3;
+}
+
+.jumbotron {
+    color:steelblue !important; 
+}
+
+.cld1 {
+	color:green;
+}
+
+.showpadd {
+margin-left:725px;
+}

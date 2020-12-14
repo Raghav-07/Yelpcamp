@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/yelpcss.css">
+<%- include("partials/header.ejs") %>
+<body style="background-color:#D3D3D3;">
+<div class="container">
+<h1 class="five">Edit</h1>
+
+	<div class="row">
+<form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>"  method="post">
+	<div style="width:30%; margin: 0 auto;">
+
+	<div class="six">	
+	<input class="form-control" type="text" value="<%= comment.text %>" name="comment[text]">
+		</div>
+
+		
+	<button class="btn btn-lg btn-primary btn-block" >submit</button>
+	</div>
+	</form>
+		<a href="/campgrounds">Go Back </a>
+</div>
+</div>
+<body>
+

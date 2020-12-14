@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/yelpcss.css">
+
+<%- include("partials/header.ejs") %>
+<body style="background-color:#D3D3D3;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<body>
+<div class="container">	
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">YelpCamp</p> 
+			<div class="list-group">
+				<li class="list-group-item">info1 </li>
+				<li class="list-group-item">info1 </li>
+				<li class="list-group-item">info1 </li>
+			</div>
+		</div>
+		
+		<div class="col-md-9">
+			<div class="thumbnail">
+<img class="img-responsive" src="<%= campground.image %> ">
+				<div class="caption-full">
+					<h4 style="color:steelblue;", class="pull-right"> <a> <%= campground.price %>$/night </a> </h4> 
+
+					<h4 style="color:Navy;"> <a><%= campground.name %></a> </h4> 
+			
+				<br>
+<p style="color:Navy;"> <%= campground.description %> </p>            
+	<br>
+					<p>Submitted By <%= campground.author.username %> </p>
+					<br>
+					
+	</div>
+	<br>
+			<% if(currentuser && campground.author.id.equals(currentuser._id)) { %>	
+<a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-success"> EDIT </a> 
+			<hr>
+<div class="container">
+	
+<form action='/campgrounds/<%= campground._id %>/delete' method="post">
+		<div class="showpadd">
+
+<i class="fa fa-trash-o " aria-hidden="true"></i>
+	
+	<button class="btn btn-danger">DELETE</button>
+	</div>
+	</form>
+</div>
+		</div>
+<% } %>
+<div class="well">
+	<div class="text-right">
+					<a href='/campgrounds/<%= campground._id %>/comments/new' class="btn btn-success btn-sm" > Add New Comment </a> 
+	</div>
+	<hr>
+				<% campground.comments.forEach(function(comment) { %> 
+<div class="row">
+	 <div class="col-md-12"> 
+		 <strong> <%= comment.author.username %> </strong>
+		 <br>
+		<span class="pull-right">10 days Ago </span>
+		<%= comment.text %>
+		 <br>
+		 			<% if(currentuser && comment.author.id.equals(currentuser._id)) { %>	
+
+		 <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">EDIT </a>
+		 	<div class="text-right">
+
+		 <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id%>/delete" method="post">
+		 		 <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+		 </form>
+		 </div>
+			<% } %>
+				</div>
+				<% }) %>
+
+	</div>
+	</div>
+			
+
+
+	</div>
+	</div>
+			<a href="/campgrounds" > BACK </a> 
+
+
